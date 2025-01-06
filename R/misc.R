@@ -446,7 +446,8 @@ propHomotypic <- function(clusters){
   }
   if( !("counts" %in% assayNames(sce)) )
     stop("`sce` should have an assay named 'counts'")
-  counts(sce) <- as(counts(sce),"CsparseMatrix")
+  if(!is(counts(sce),"DelayedMatrix"))
+    counts(sce) <- as(counts(sce),"CsparseMatrix")
   if(any(counts(sce)<0))
     stop(msg, "\n", "The data contains negative counts!")
   if(min(colSums(counts(sce)))<200)
