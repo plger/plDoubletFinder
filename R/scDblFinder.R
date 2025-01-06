@@ -217,7 +217,7 @@ scDblFinder <- function(
          " works if `sce` is a SingleCellExperiment.\n",
          "Please pass the vector of labels.")
   }
-  sce <- .checkSCE(sce)
+  sce <- .checkSCE(sce, coerce=is.null(samples))
   score <- match.arg(score)
   knownUse <- match.arg(knownUse)
   if(!is.null(clustCor)){

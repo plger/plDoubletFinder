@@ -433,7 +433,7 @@ propHomotypic <- function(clusters){
               rank=max(dims))$x[,seq_len(max(dims))]
 }
 
-.checkSCE <- function(sce){
+.checkSCE <- function(sce, coerce=TRUE){
   msg <- paste(
     "`sce` should be a SingleCellExperiment, a SummarizedExperiment, ",
     "or an array (i.e. matrix, sparse matric, etc.) of counts.")
@@ -446,7 +446,7 @@ propHomotypic <- function(clusters){
   }
   if( !("counts" %in% assayNames(sce)) )
     stop("`sce` should have an assay named 'counts'")
-  if(!is(counts(sce),"DelayedMatrix"))
+  if(coerce || !is(counts(sce),"DelayedMatrix"))
     counts(sce) <- as(counts(sce),"CsparseMatrix")
   if(any(counts(sce)<0))
     stop(msg, "\n", "The data contains negative counts!")
