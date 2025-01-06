@@ -306,6 +306,7 @@ scDblFinder <- function(
                error=function(e){
                  stop("An error occured while processing sample '",n,"':\n", e)
                })
+      gc(verbose=FALSE, full=TRUE)
       if(!is.matrix(out)) out$sample <- n
       out
     })
