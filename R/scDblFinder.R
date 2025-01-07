@@ -199,7 +199,7 @@
 scDblFinder <- function(
   sce, clusters=NULL, samples=NULL, clustCor=NULL, artificialDoublets=NULL,
   knownDoublets=NULL, knownUse=c("discard","positive"), dbr=NULL, dbr.sd=NULL, 
-  dbr.per1k=0.08, nfeatures=1352, dims=20, k=NULL, removeUnidentifiable=TRUE,
+  dbr.per1k=0.008, nfeatures=1352, dims=20, k=NULL, removeUnidentifiable=TRUE,
   includePCs=19, propRandom=0, propMarkers=0, aggregateFeatures=FALSE,
   returnType=c("sce","table","full","counts"),
   score=c("xgb","weighted","ratio"), processing="default", metric="logloss",

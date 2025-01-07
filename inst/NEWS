@@ -1,3 +1,7 @@
+Changes in version 1.19.9 (2025-01-07)
++ fixed the default dbr.per1k value in the top-level function
++ slight memory improvements (gc and not coercing DelayedArray before sample split)
+
 Changes in version 1.19.6 (2024-09-19)
 + added a dbr.per1k parameter to set doublet rates per thousands of cells, updated the default from 1 to 0.8\%
 + fixed some issues stemming from the cxds score in some corner cases (absence of inverse correlation between genes)
