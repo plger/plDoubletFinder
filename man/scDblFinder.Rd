@@ -14,7 +14,7 @@ scDblFinder(
   knownUse = c("discard", "positive"),
   dbr = NULL,
   dbr.sd = NULL,
-  dbr.per1k = 0.08,
+  dbr.per1k = 0.008,
   nfeatures = 1352,
   dims = 20,
   k = NULL,
