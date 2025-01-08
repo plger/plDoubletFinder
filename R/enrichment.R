@@ -19,7 +19,7 @@
 #' @export
 #'
 #' @examples
-#' sce <- mockDoubletSCE(rep(200,5))
+#' sce <- mockDoubletSCE(rep(200,5), dbl.rate=0.2)
 #' sce <- scDblFinder(sce, clusters=TRUE, artificialDoublets=500)
 #' clusterStickiness(sce)
 clusterStickiness <- function(x, type=c("quasibinomial","nbinom","binomial","poisson"),
@@ -31,6 +31,7 @@ clusterStickiness <- function(x, type=c("quasibinomial","nbinom","binomial","poi
                         "with the cluster-based approach?")
   }
   stopifnot(all(c("combination","observed","expected") %in% colnames(x)))
+  if(sum(x$observed)<5) stop("Insufficient number of doublets")
 
   if(is.null(inclDiff)) inclDiff <- length(unique(x$combination))>15
 

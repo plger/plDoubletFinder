@@ -32,7 +32,7 @@ Note that when applied to an multisample object, this functions assumes that
 the cluster labels match across samples.
 }
 \examples{
-sce <- mockDoubletSCE(rep(200,5))
+sce <- mockDoubletSCE(rep(200,5), dbl.rate=0.2)
 sce <- scDblFinder(sce, clusters=TRUE, artificialDoublets=500)
 clusterStickiness(sce)
 }
